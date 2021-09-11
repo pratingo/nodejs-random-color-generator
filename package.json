@@ -6,7 +6,8 @@
   "author": "Ingo Pratsch <pratingo@mailbox.org>",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^4.1.2"
+    "chalk": "^4.1.2",
+    "randomcolor": "^0.6.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "11.0.0",
