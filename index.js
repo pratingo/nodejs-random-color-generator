@@ -30,6 +30,7 @@ if (process.argv[2] === 'ask') {
   ask();
 }
 
+
 const color = randomColor({
   luminosity: process.argv[3],
   hue: process.argv[2],
