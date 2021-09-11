@@ -1,35 +1,29 @@
 const chalk = require('chalk');
-const { rawListeners, exit } = require('process');
+
 const randomColor = require('randomcolor');
-const readline = require('readline');
+const readline = require('node:readline');
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-let done = false;
 function ask() {
-  let colo, lumi;
   rl.question('Color?', (col) => {
     rl.question('Luminousity?', (lum) => {
       randomColor({
         luminosity: lum,
         hue: col,
       });
-      done = true;
+
       rl.close();
     });
   });
-  if (colo && lumi) {
-    printLogo();
-  }
 }
 
 if (process.argv[2] === 'ask') {
   ask();
 }
-
 
 const color = randomColor({
   luminosity: process.argv[3],
@@ -73,13 +67,12 @@ if (process.argv[2] === 'ask') {
 }
 */
 if (process.argv[2]?.includes('x')) {
-  let str = process.argv[2].split('x');
+  const str = process.argv[2].split('x');
 
   printLogo(str[0], str[1]);
   rl.close();
-  exit();
 }
-if (process.argv[2] === undefined) {
+if (process.argv[2]) {
   printLogo();
   rl.close();
 } else {
