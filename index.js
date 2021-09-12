@@ -61,21 +61,15 @@ if (process.argv[2] === 'ask') {
       printLogo(w, h);
     });
   });
-}
-
-if (process.argv[2]?.includes('x')) {
+} else if (process.argv[2]?.includes('x')) {
   const str = process.argv[2].split('x');
 
   printLogo(str[0], str[1]);
-}
-if (
-  process.argv[2] &&
-  !process.argv[2].includes('x') &&
-  process.argv[2] !== 'ask'
+} else if (
+  !process.argv[2] ||
+  (process.argv[2] &&
+    !process.argv[2].includes('x') &&
+    process.argv[2] !== 'ask')
 ) {
-  printLogo();
-}
-
-if (!process.argv[2]) {
   printLogo();
 }
